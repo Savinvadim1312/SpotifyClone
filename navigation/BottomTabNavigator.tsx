@@ -2,7 +2,7 @@ import {
   Ionicons,
   Entypo,
   EvilIcons,
-  MaterialCommunityIcons,
+  AntDesign,
   FontAwesome5
 } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -43,7 +43,7 @@ export default function BottomTabNavigator() {
         name="Your Library"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="library-music-outline" size={30} style={{ marginBottom: -3 }} color={color} />,
+          tabBarIcon: ({ color }) => <AntDesign name="hearto" size={30} style={{ marginBottom: -3 }} color={color}/>,
         }}
       />
       <BottomTab.Screen
