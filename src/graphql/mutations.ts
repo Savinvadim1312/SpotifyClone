@@ -2,23 +2,24 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createAlbumCategory = /* GraphQL */ `
-  mutation CreateAlbumCategory(
-    $input: CreateAlbumCategoryInput!
-    $condition: ModelAlbumCategoryConditionInput
+export const createEssayCategory = /* GraphQL */ `
+  mutation CreateEssayCategory(
+    $input: CreateEssayCategoryInput!
+    $condition: ModelEssayCategoryConditionInput
   ) {
-    createAlbumCategory(input: $input, condition: $condition) {
+    createEssayCategory(input: $input, condition: $condition) {
       id
-      title
-      albums {
+      name
+      temp
+      essays {
         items {
           id
           name
-          by
-          numberOfLikes
           imageUri
-          artistsHeadline
-          albumCategoryId
+          audioUri
+          temp
+          essayCategoryId
+          authorId
           createdAt
           updatedAt
         }
@@ -29,23 +30,24 @@ export const createAlbumCategory = /* GraphQL */ `
     }
   }
 `;
-export const updateAlbumCategory = /* GraphQL */ `
-  mutation UpdateAlbumCategory(
-    $input: UpdateAlbumCategoryInput!
-    $condition: ModelAlbumCategoryConditionInput
+export const updateEssayCategory = /* GraphQL */ `
+  mutation UpdateEssayCategory(
+    $input: UpdateEssayCategoryInput!
+    $condition: ModelEssayCategoryConditionInput
   ) {
-    updateAlbumCategory(input: $input, condition: $condition) {
+    updateEssayCategory(input: $input, condition: $condition) {
       id
-      title
-      albums {
+      name
+      temp
+      essays {
         items {
           id
           name
-          by
-          numberOfLikes
           imageUri
-          artistsHeadline
-          albumCategoryId
+          audioUri
+          temp
+          essayCategoryId
+          authorId
           createdAt
           updatedAt
         }
@@ -56,23 +58,24 @@ export const updateAlbumCategory = /* GraphQL */ `
     }
   }
 `;
-export const deleteAlbumCategory = /* GraphQL */ `
-  mutation DeleteAlbumCategory(
-    $input: DeleteAlbumCategoryInput!
-    $condition: ModelAlbumCategoryConditionInput
+export const deleteEssayCategory = /* GraphQL */ `
+  mutation DeleteEssayCategory(
+    $input: DeleteEssayCategoryInput!
+    $condition: ModelEssayCategoryConditionInput
   ) {
-    deleteAlbumCategory(input: $input, condition: $condition) {
+    deleteEssayCategory(input: $input, condition: $condition) {
       id
-      title
-      albums {
+      name
+      temp
+      essays {
         items {
           id
           name
-          by
-          numberOfLikes
           imageUri
-          artistsHeadline
-          albumCategoryId
+          audioUri
+          temp
+          essayCategoryId
+          authorId
           createdAt
           updatedAt
         }
@@ -83,116 +86,122 @@ export const deleteAlbumCategory = /* GraphQL */ `
     }
   }
 `;
-export const createAlbum = /* GraphQL */ `
-  mutation CreateAlbum(
-    $input: CreateAlbumInput!
-    $condition: ModelAlbumConditionInput
+export const createAuthor = /* GraphQL */ `
+  mutation CreateAuthor(
+    $input: CreateAuthorInput!
+    $condition: ModelAuthorConditionInput
   ) {
-    createAlbum(input: $input, condition: $condition) {
+    createAuthor(input: $input, condition: $condition) {
       id
       name
-      by
-      numberOfLikes
       imageUri
-      artistsHeadline
-      songs {
+      temp
+      essays {
         items {
           id
+          name
           imageUri
-          uri
-          title
-          artist
-          albumId
+          audioUri
+          temp
+          essayCategoryId
+          authorId
           createdAt
           updatedAt
         }
         nextToken
-      }
-      albumCategoryId
-      albumCategory {
-        id
-        title
-        albums {
-          nextToken
-        }
-        createdAt
-        updatedAt
       }
       createdAt
       updatedAt
     }
   }
 `;
-export const updateAlbum = /* GraphQL */ `
-  mutation UpdateAlbum(
-    $input: UpdateAlbumInput!
-    $condition: ModelAlbumConditionInput
+export const updateAuthor = /* GraphQL */ `
+  mutation UpdateAuthor(
+    $input: UpdateAuthorInput!
+    $condition: ModelAuthorConditionInput
   ) {
-    updateAlbum(input: $input, condition: $condition) {
+    updateAuthor(input: $input, condition: $condition) {
       id
       name
-      by
-      numberOfLikes
       imageUri
-      artistsHeadline
-      songs {
+      temp
+      essays {
         items {
           id
+          name
           imageUri
-          uri
-          title
-          artist
-          albumId
+          audioUri
+          temp
+          essayCategoryId
+          authorId
           createdAt
           updatedAt
         }
         nextToken
-      }
-      albumCategoryId
-      albumCategory {
-        id
-        title
-        albums {
-          nextToken
-        }
-        createdAt
-        updatedAt
       }
       createdAt
       updatedAt
     }
   }
 `;
-export const deleteAlbum = /* GraphQL */ `
-  mutation DeleteAlbum(
-    $input: DeleteAlbumInput!
-    $condition: ModelAlbumConditionInput
+export const deleteAuthor = /* GraphQL */ `
+  mutation DeleteAuthor(
+    $input: DeleteAuthorInput!
+    $condition: ModelAuthorConditionInput
   ) {
-    deleteAlbum(input: $input, condition: $condition) {
+    deleteAuthor(input: $input, condition: $condition) {
       id
       name
-      by
-      numberOfLikes
       imageUri
-      artistsHeadline
-      songs {
+      temp
+      essays {
         items {
           id
+          name
           imageUri
-          uri
-          title
-          artist
-          albumId
+          audioUri
+          temp
+          essayCategoryId
+          authorId
           createdAt
           updatedAt
         }
         nextToken
       }
-      albumCategoryId
-      albumCategory {
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createEssay = /* GraphQL */ `
+  mutation CreateEssay(
+    $input: CreateEssayInput!
+    $condition: ModelEssayConditionInput
+  ) {
+    createEssay(input: $input, condition: $condition) {
+      id
+      name
+      imageUri
+      audioUri
+      temp
+      essayCategoryId
+      essayCategory {
         id
-        title
-        albums {
+        name
+        temp
+        essays {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      authorId
+      author {
+        id
+        name
+        imageUri
+        temp
+        essays {
           nextToken
         }
         createdAt
@@ -203,34 +212,36 @@ export const deleteAlbum = /* GraphQL */ `
     }
   }
 `;
-export const createSong = /* GraphQL */ `
-  mutation CreateSong(
-    $input: CreateSongInput!
-    $condition: ModelSongConditionInput
+export const updateEssay = /* GraphQL */ `
+  mutation UpdateEssay(
+    $input: UpdateEssayInput!
+    $condition: ModelEssayConditionInput
   ) {
-    createSong(input: $input, condition: $condition) {
+    updateEssay(input: $input, condition: $condition) {
       id
+      name
       imageUri
-      uri
-      title
-      artist
-      albumId
-      album {
+      audioUri
+      temp
+      essayCategoryId
+      essayCategory {
         id
         name
-        by
-        numberOfLikes
-        imageUri
-        artistsHeadline
-        songs {
+        temp
+        essays {
           nextToken
         }
-        albumCategoryId
-        albumCategory {
-          id
-          title
-          createdAt
-          updatedAt
+        createdAt
+        updatedAt
+      }
+      authorId
+      author {
+        id
+        name
+        imageUri
+        temp
+        essays {
+          nextToken
         }
         createdAt
         updatedAt
@@ -240,71 +251,36 @@ export const createSong = /* GraphQL */ `
     }
   }
 `;
-export const updateSong = /* GraphQL */ `
-  mutation UpdateSong(
-    $input: UpdateSongInput!
-    $condition: ModelSongConditionInput
+export const deleteEssay = /* GraphQL */ `
+  mutation DeleteEssay(
+    $input: DeleteEssayInput!
+    $condition: ModelEssayConditionInput
   ) {
-    updateSong(input: $input, condition: $condition) {
+    deleteEssay(input: $input, condition: $condition) {
       id
+      name
       imageUri
-      uri
-      title
-      artist
-      albumId
-      album {
+      audioUri
+      temp
+      essayCategoryId
+      essayCategory {
         id
         name
-        by
-        numberOfLikes
-        imageUri
-        artistsHeadline
-        songs {
+        temp
+        essays {
           nextToken
-        }
-        albumCategoryId
-        albumCategory {
-          id
-          title
-          createdAt
-          updatedAt
         }
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteSong = /* GraphQL */ `
-  mutation DeleteSong(
-    $input: DeleteSongInput!
-    $condition: ModelSongConditionInput
-  ) {
-    deleteSong(input: $input, condition: $condition) {
-      id
-      imageUri
-      uri
-      title
-      artist
-      albumId
-      album {
+      authorId
+      author {
         id
         name
-        by
-        numberOfLikes
         imageUri
-        artistsHeadline
-        songs {
+        temp
+        essays {
           nextToken
-        }
-        albumCategoryId
-        albumCategory {
-          id
-          title
-          createdAt
-          updatedAt
         }
         createdAt
         updatedAt

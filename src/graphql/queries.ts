@@ -2,110 +2,44 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getAlbumCategory = /* GraphQL */ `
-  query GetAlbumCategory($id: ID!) {
-    getAlbumCategory(id: $id) {
-      id
-      title
-      albums {
-        items {
-          id
-          name
-          by
-          numberOfLikes
-          imageUri
-          artistsHeadline
-          albumCategoryId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listAlbumCategorys = /* GraphQL */ `
-  query ListAlbumCategorys(
-    $filter: ModelAlbumCategoryFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listAlbumCategorys(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        title
-        albums {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const getAlbum = /* GraphQL */ `
-  query GetAlbum($id: ID!) {
-    getAlbum(id: $id) {
+export const getEssayCategory = /* GraphQL */ `
+  query GetEssayCategory($id: ID!) {
+    getEssayCategory(id: $id) {
       id
       name
-      by
-      numberOfLikes
-      imageUri
-      artistsHeadline
-      songs {
+      temp
+      essays {
         items {
           id
+          name
           imageUri
-          uri
-          title
-          artist
-          albumId
+          audioUri
+          temp
+          essayCategoryId
+          authorId
           createdAt
           updatedAt
         }
         nextToken
-      }
-      albumCategoryId
-      albumCategory {
-        id
-        title
-        albums {
-          nextToken
-        }
-        createdAt
-        updatedAt
       }
       createdAt
       updatedAt
     }
   }
 `;
-export const listAlbums = /* GraphQL */ `
-  query ListAlbums(
-    $filter: ModelAlbumFilterInput
+export const listEssayCategorys = /* GraphQL */ `
+  query ListEssayCategorys(
+    $filter: ModelEssayCategoryFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listAlbums(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listEssayCategorys(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         name
-        by
-        numberOfLikes
-        imageUri
-        artistsHeadline
-        songs {
+        temp
+        essays {
           nextToken
-        }
-        albumCategoryId
-        albumCategory {
-          id
-          title
-          createdAt
-          updatedAt
         }
         createdAt
         updatedAt
@@ -114,31 +48,81 @@ export const listAlbums = /* GraphQL */ `
     }
   }
 `;
-export const getSong = /* GraphQL */ `
-  query GetSong($id: ID!) {
-    getSong(id: $id) {
+export const getAuthor = /* GraphQL */ `
+  query GetAuthor($id: ID!) {
+    getAuthor(id: $id) {
       id
+      name
       imageUri
-      uri
-      title
-      artist
-      albumId
-      album {
-        id
-        name
-        by
-        numberOfLikes
-        imageUri
-        artistsHeadline
-        songs {
-          nextToken
-        }
-        albumCategoryId
-        albumCategory {
+      temp
+      essays {
+        items {
           id
-          title
+          name
+          imageUri
+          audioUri
+          temp
+          essayCategoryId
+          authorId
           createdAt
           updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listAuthors = /* GraphQL */ `
+  query ListAuthors(
+    $filter: ModelAuthorFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listAuthors(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        imageUri
+        temp
+        essays {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getEssay = /* GraphQL */ `
+  query GetEssay($id: ID!) {
+    getEssay(id: $id) {
+      id
+      name
+      imageUri
+      audioUri
+      temp
+      essayCategoryId
+      essayCategory {
+        id
+        name
+        temp
+        essays {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      authorId
+      author {
+        id
+        name
+        imageUri
+        temp
+        essays {
+          nextToken
         }
         createdAt
         updatedAt
@@ -148,28 +132,33 @@ export const getSong = /* GraphQL */ `
     }
   }
 `;
-export const listSongs = /* GraphQL */ `
-  query ListSongs(
-    $filter: ModelSongFilterInput
+export const listEssays = /* GraphQL */ `
+  query ListEssays(
+    $filter: ModelEssayFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listSongs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listEssays(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        name
         imageUri
-        uri
-        title
-        artist
-        albumId
-        album {
+        audioUri
+        temp
+        essayCategoryId
+        essayCategory {
           id
           name
-          by
-          numberOfLikes
+          temp
+          createdAt
+          updatedAt
+        }
+        authorId
+        author {
+          id
+          name
           imageUri
-          artistsHeadline
-          albumCategoryId
+          temp
           createdAt
           updatedAt
         }

@@ -2,20 +2,21 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateAlbumCategory = /* GraphQL */ `
-  subscription OnCreateAlbumCategory {
-    onCreateAlbumCategory {
+export const onCreateEssayCategory = /* GraphQL */ `
+  subscription OnCreateEssayCategory {
+    onCreateEssayCategory {
       id
-      title
-      albums {
+      name
+      temp
+      essays {
         items {
           id
           name
-          by
-          numberOfLikes
           imageUri
-          artistsHeadline
-          albumCategoryId
+          audioUri
+          temp
+          essayCategoryId
+          authorId
           createdAt
           updatedAt
         }
@@ -26,20 +27,21 @@ export const onCreateAlbumCategory = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateAlbumCategory = /* GraphQL */ `
-  subscription OnUpdateAlbumCategory {
-    onUpdateAlbumCategory {
+export const onUpdateEssayCategory = /* GraphQL */ `
+  subscription OnUpdateEssayCategory {
+    onUpdateEssayCategory {
       id
-      title
-      albums {
+      name
+      temp
+      essays {
         items {
           id
           name
-          by
-          numberOfLikes
           imageUri
-          artistsHeadline
-          albumCategoryId
+          audioUri
+          temp
+          essayCategoryId
+          authorId
           createdAt
           updatedAt
         }
@@ -50,20 +52,21 @@ export const onUpdateAlbumCategory = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteAlbumCategory = /* GraphQL */ `
-  subscription OnDeleteAlbumCategory {
-    onDeleteAlbumCategory {
+export const onDeleteEssayCategory = /* GraphQL */ `
+  subscription OnDeleteEssayCategory {
+    onDeleteEssayCategory {
       id
-      title
-      albums {
+      name
+      temp
+      essays {
         items {
           id
           name
-          by
-          numberOfLikes
           imageUri
-          artistsHeadline
-          albumCategoryId
+          audioUri
+          temp
+          essayCategoryId
+          authorId
           createdAt
           updatedAt
         }
@@ -74,107 +77,110 @@ export const onDeleteAlbumCategory = /* GraphQL */ `
     }
   }
 `;
-export const onCreateAlbum = /* GraphQL */ `
-  subscription OnCreateAlbum {
-    onCreateAlbum {
+export const onCreateAuthor = /* GraphQL */ `
+  subscription OnCreateAuthor {
+    onCreateAuthor {
       id
       name
-      by
-      numberOfLikes
       imageUri
-      artistsHeadline
-      songs {
+      temp
+      essays {
         items {
           id
+          name
           imageUri
-          uri
-          title
-          artist
-          albumId
+          audioUri
+          temp
+          essayCategoryId
+          authorId
           createdAt
           updatedAt
         }
         nextToken
-      }
-      albumCategoryId
-      albumCategory {
-        id
-        title
-        albums {
-          nextToken
-        }
-        createdAt
-        updatedAt
       }
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdateAlbum = /* GraphQL */ `
-  subscription OnUpdateAlbum {
-    onUpdateAlbum {
+export const onUpdateAuthor = /* GraphQL */ `
+  subscription OnUpdateAuthor {
+    onUpdateAuthor {
       id
       name
-      by
-      numberOfLikes
       imageUri
-      artistsHeadline
-      songs {
+      temp
+      essays {
         items {
           id
+          name
           imageUri
-          uri
-          title
-          artist
-          albumId
+          audioUri
+          temp
+          essayCategoryId
+          authorId
           createdAt
           updatedAt
         }
         nextToken
-      }
-      albumCategoryId
-      albumCategory {
-        id
-        title
-        albums {
-          nextToken
-        }
-        createdAt
-        updatedAt
       }
       createdAt
       updatedAt
     }
   }
 `;
-export const onDeleteAlbum = /* GraphQL */ `
-  subscription OnDeleteAlbum {
-    onDeleteAlbum {
+export const onDeleteAuthor = /* GraphQL */ `
+  subscription OnDeleteAuthor {
+    onDeleteAuthor {
       id
       name
-      by
-      numberOfLikes
       imageUri
-      artistsHeadline
-      songs {
+      temp
+      essays {
         items {
           id
+          name
           imageUri
-          uri
-          title
-          artist
-          albumId
+          audioUri
+          temp
+          essayCategoryId
+          authorId
           createdAt
           updatedAt
         }
         nextToken
       }
-      albumCategoryId
-      albumCategory {
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateEssay = /* GraphQL */ `
+  subscription OnCreateEssay {
+    onCreateEssay {
+      id
+      name
+      imageUri
+      audioUri
+      temp
+      essayCategoryId
+      essayCategory {
         id
-        title
-        albums {
+        name
+        temp
+        essays {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      authorId
+      author {
+        id
+        name
+        imageUri
+        temp
+        essays {
           nextToken
         }
         createdAt
@@ -185,31 +191,33 @@ export const onDeleteAlbum = /* GraphQL */ `
     }
   }
 `;
-export const onCreateSong = /* GraphQL */ `
-  subscription OnCreateSong {
-    onCreateSong {
+export const onUpdateEssay = /* GraphQL */ `
+  subscription OnUpdateEssay {
+    onUpdateEssay {
       id
+      name
       imageUri
-      uri
-      title
-      artist
-      albumId
-      album {
+      audioUri
+      temp
+      essayCategoryId
+      essayCategory {
         id
         name
-        by
-        numberOfLikes
-        imageUri
-        artistsHeadline
-        songs {
+        temp
+        essays {
           nextToken
         }
-        albumCategoryId
-        albumCategory {
-          id
-          title
-          createdAt
-          updatedAt
+        createdAt
+        updatedAt
+      }
+      authorId
+      author {
+        id
+        name
+        imageUri
+        temp
+        essays {
+          nextToken
         }
         createdAt
         updatedAt
@@ -219,65 +227,33 @@ export const onCreateSong = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateSong = /* GraphQL */ `
-  subscription OnUpdateSong {
-    onUpdateSong {
+export const onDeleteEssay = /* GraphQL */ `
+  subscription OnDeleteEssay {
+    onDeleteEssay {
       id
+      name
       imageUri
-      uri
-      title
-      artist
-      albumId
-      album {
+      audioUri
+      temp
+      essayCategoryId
+      essayCategory {
         id
         name
-        by
-        numberOfLikes
-        imageUri
-        artistsHeadline
-        songs {
+        temp
+        essays {
           nextToken
-        }
-        albumCategoryId
-        albumCategory {
-          id
-          title
-          createdAt
-          updatedAt
         }
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteSong = /* GraphQL */ `
-  subscription OnDeleteSong {
-    onDeleteSong {
-      id
-      imageUri
-      uri
-      title
-      artist
-      albumId
-      album {
+      authorId
+      author {
         id
         name
-        by
-        numberOfLikes
         imageUri
-        artistsHeadline
-        songs {
+        temp
+        essays {
           nextToken
-        }
-        albumCategoryId
-        albumCategory {
-          id
-          title
-          createdAt
-          updatedAt
         }
         createdAt
         updatedAt

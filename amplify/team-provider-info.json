@@ -10,6 +10,11 @@
       "StackName": "amplify-spotify-dev-165854",
       "StackId": "arn:aws:cloudformation:eu-west-1:704219588443:stack/amplify-spotify-dev-165854/4e0695c0-ff37-11ea-bb24-0a0272129526",
       "AmplifyAppId": "d2v0ai1q6p9by1"
+    },
+    "categories": {
+      "auth": {
+        "spotify929cceba": {}
+      }
     }
   },
   "default": {
@@ -23,6 +28,41 @@
       "StackName": "amplify-spotify-default-154513",
       "StackId": "arn:aws:cloudformation:us-west-1:961561619633:stack/amplify-spotify-default-154513/7e138690-9465-11ed-9728-02eb6676ad0d",
       "AmplifyAppId": "d1tjzbvayn3eqf"
+    },
+    "categories": {
+      "auth": {
+        "spotify929cceba": {}
+      },
+      "api": {
+        "spotify": {}
+      },
+      "storage": {
+        "s3ef62c70a": {}
+      }
+    }
+  },
+  "new": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-spotify-new-02429-authRole",
+      "UnauthRoleArn": "arn:aws:iam::961561619633:role/amplify-spotify-new-02429-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::961561619633:role/amplify-spotify-new-02429-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-spotify-new-02429-deployment",
+      "UnauthRoleName": "amplify-spotify-new-02429-unauthRole",
+      "StackName": "amplify-spotify-new-02429",
+      "StackId": "arn:aws:cloudformation:us-west-1:961561619633:stack/amplify-spotify-new-02429/32eccce0-9577-11ed-bcb1-02b46a715ff5",
+      "AmplifyAppId": "d1tjzbvayn3eqf"
+    },
+    "categories": {
+      "auth": {
+        "spotify929cceba": {}
+      },
+      "api": {
+        "spotify": {}
+      },
+      "storage": {
+        "s3ef62c70a": {}
+      }
     }
   }
 }

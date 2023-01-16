@@ -2,16 +2,18 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateAlbumCategoryInput = {
+export type CreateEssayCategoryInput = {
   id?: string | null,
-  title: string,
+  name: string,
+  temp: string,
 };
 
-export type ModelAlbumCategoryConditionInput = {
-  title?: ModelStringInput | null,
-  and?: Array< ModelAlbumCategoryConditionInput | null > | null,
-  or?: Array< ModelAlbumCategoryConditionInput | null > | null,
-  not?: ModelAlbumCategoryConditionInput | null,
+export type ModelEssayCategoryConditionInput = {
+  name?: ModelStringInput | null,
+  temp?: ModelStringInput | null,
+  and?: Array< ModelEssayCategoryConditionInput | null > | null,
+  or?: Array< ModelEssayCategoryConditionInput | null > | null,
+  not?: ModelEssayCategoryConditionInput | null,
 };
 
 export type ModelStringInput = {
@@ -54,96 +56,105 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type AlbumCategory = {
-  __typename: "AlbumCategory",
-  id: string,
-  title: string,
-  albums?: ModelAlbumConnection | null,
-  createdAt: string,
-  updatedAt: string,
-};
-
-export type ModelAlbumConnection = {
-  __typename: "ModelAlbumConnection",
-  items:  Array<Album | null >,
-  nextToken?: string | null,
-};
-
-export type Album = {
-  __typename: "Album",
+export type EssayCategory = {
+  __typename: "EssayCategory",
   id: string,
   name: string,
-  by: string,
-  numberOfLikes: number,
-  imageUri: string,
-  artistsHeadline: string,
-  songs?: ModelSongConnection | null,
-  albumCategoryId: string,
-  albumCategory?: AlbumCategory | null,
+  temp: string,
+  essays?: ModelEssayConnection | null,
   createdAt: string,
   updatedAt: string,
 };
 
-export type ModelSongConnection = {
-  __typename: "ModelSongConnection",
-  items:  Array<Song | null >,
+export type ModelEssayConnection = {
+  __typename: "ModelEssayConnection",
+  items:  Array<Essay | null >,
   nextToken?: string | null,
 };
 
-export type Song = {
-  __typename: "Song",
+export type Essay = {
+  __typename: "Essay",
   id: string,
+  name: string,
   imageUri: string,
-  uri: string,
-  title: string,
-  artist: string,
-  albumId: string,
-  album?: Album | null,
+  audioUri: string,
+  temp: string,
+  essayCategoryId: string,
+  essayCategory?: EssayCategory | null,
+  authorId: string,
+  author?: Author | null,
   createdAt: string,
   updatedAt: string,
 };
 
-export type UpdateAlbumCategoryInput = {
+export type Author = {
+  __typename: "Author",
   id: string,
-  title?: string | null,
+  name: string,
+  imageUri: string,
+  temp: string,
+  essays?: ModelEssayConnection | null,
+  createdAt: string,
+  updatedAt: string,
 };
 
-export type DeleteAlbumCategoryInput = {
+export type UpdateEssayCategoryInput = {
+  id: string,
+  name?: string | null,
+  temp?: string | null,
+};
+
+export type DeleteEssayCategoryInput = {
   id: string,
 };
 
-export type CreateAlbumInput = {
+export type CreateAuthorInput = {
   id?: string | null,
   name: string,
-  by: string,
-  numberOfLikes: number,
   imageUri: string,
-  artistsHeadline: string,
-  albumCategoryId: string,
+  temp: string,
 };
 
-export type ModelAlbumConditionInput = {
+export type ModelAuthorConditionInput = {
   name?: ModelStringInput | null,
-  by?: ModelStringInput | null,
-  numberOfLikes?: ModelIntInput | null,
   imageUri?: ModelStringInput | null,
-  artistsHeadline?: ModelStringInput | null,
-  albumCategoryId?: ModelIDInput | null,
-  and?: Array< ModelAlbumConditionInput | null > | null,
-  or?: Array< ModelAlbumConditionInput | null > | null,
-  not?: ModelAlbumConditionInput | null,
+  temp?: ModelStringInput | null,
+  and?: Array< ModelAuthorConditionInput | null > | null,
+  or?: Array< ModelAuthorConditionInput | null > | null,
+  not?: ModelAuthorConditionInput | null,
 };
 
-export type ModelIntInput = {
-  ne?: number | null,
-  eq?: number | null,
-  le?: number | null,
-  lt?: number | null,
-  ge?: number | null,
-  gt?: number | null,
-  between?: Array< number | null > | null,
-  attributeExists?: boolean | null,
-  attributeType?: ModelAttributeTypes | null,
+export type UpdateAuthorInput = {
+  id: string,
+  name?: string | null,
+  imageUri?: string | null,
+  temp?: string | null,
+};
+
+export type DeleteAuthorInput = {
+  id: string,
+};
+
+export type CreateEssayInput = {
+  id?: string | null,
+  name: string,
+  imageUri: string,
+  audioUri: string,
+  temp: string,
+  essayCategoryId: string,
+  authorId: string,
+};
+
+export type ModelEssayConditionInput = {
+  name?: ModelStringInput | null,
+  imageUri?: ModelStringInput | null,
+  audioUri?: ModelStringInput | null,
+  temp?: ModelStringInput | null,
+  essayCategoryId?: ModelIDInput | null,
+  authorId?: ModelIDInput | null,
+  and?: Array< ModelEssayConditionInput | null > | null,
+  or?: Array< ModelEssayConditionInput | null > | null,
+  not?: ModelEssayConditionInput | null,
 };
 
 export type ModelIDInput = {
@@ -162,440 +173,295 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
-export type UpdateAlbumInput = {
+export type UpdateEssayInput = {
   id: string,
   name?: string | null,
-  by?: string | null,
-  numberOfLikes?: number | null,
   imageUri?: string | null,
-  artistsHeadline?: string | null,
-  albumCategoryId?: string | null,
+  audioUri?: string | null,
+  temp?: string | null,
+  essayCategoryId?: string | null,
+  authorId?: string | null,
 };
 
-export type DeleteAlbumInput = {
+export type DeleteEssayInput = {
   id: string,
 };
 
-export type CreateSongInput = {
-  id?: string | null,
-  imageUri: string,
-  uri: string,
-  title: string,
-  artist: string,
-  albumId: string,
-};
-
-export type ModelSongConditionInput = {
-  imageUri?: ModelStringInput | null,
-  uri?: ModelStringInput | null,
-  title?: ModelStringInput | null,
-  artist?: ModelStringInput | null,
-  albumId?: ModelIDInput | null,
-  and?: Array< ModelSongConditionInput | null > | null,
-  or?: Array< ModelSongConditionInput | null > | null,
-  not?: ModelSongConditionInput | null,
-};
-
-export type UpdateSongInput = {
-  id: string,
-  imageUri?: string | null,
-  uri?: string | null,
-  title?: string | null,
-  artist?: string | null,
-  albumId?: string | null,
-};
-
-export type DeleteSongInput = {
-  id: string,
-};
-
-export type ModelAlbumCategoryFilterInput = {
-  id?: ModelIDInput | null,
-  title?: ModelStringInput | null,
-  and?: Array< ModelAlbumCategoryFilterInput | null > | null,
-  or?: Array< ModelAlbumCategoryFilterInput | null > | null,
-  not?: ModelAlbumCategoryFilterInput | null,
-};
-
-export type ModelAlbumCategoryConnection = {
-  __typename: "ModelAlbumCategoryConnection",
-  items:  Array<AlbumCategory | null >,
-  nextToken?: string | null,
-};
-
-export type ModelAlbumFilterInput = {
+export type ModelEssayCategoryFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
-  by?: ModelStringInput | null,
-  numberOfLikes?: ModelIntInput | null,
-  imageUri?: ModelStringInput | null,
-  artistsHeadline?: ModelStringInput | null,
-  albumCategoryId?: ModelIDInput | null,
-  and?: Array< ModelAlbumFilterInput | null > | null,
-  or?: Array< ModelAlbumFilterInput | null > | null,
-  not?: ModelAlbumFilterInput | null,
+  temp?: ModelStringInput | null,
+  and?: Array< ModelEssayCategoryFilterInput | null > | null,
+  or?: Array< ModelEssayCategoryFilterInput | null > | null,
+  not?: ModelEssayCategoryFilterInput | null,
 };
 
-export type ModelSongFilterInput = {
+export type ModelEssayCategoryConnection = {
+  __typename: "ModelEssayCategoryConnection",
+  items:  Array<EssayCategory | null >,
+  nextToken?: string | null,
+};
+
+export type ModelAuthorFilterInput = {
   id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
   imageUri?: ModelStringInput | null,
-  uri?: ModelStringInput | null,
-  title?: ModelStringInput | null,
-  artist?: ModelStringInput | null,
-  albumId?: ModelIDInput | null,
-  and?: Array< ModelSongFilterInput | null > | null,
-  or?: Array< ModelSongFilterInput | null > | null,
-  not?: ModelSongFilterInput | null,
+  temp?: ModelStringInput | null,
+  and?: Array< ModelAuthorFilterInput | null > | null,
+  or?: Array< ModelAuthorFilterInput | null > | null,
+  not?: ModelAuthorFilterInput | null,
 };
 
-export type CreateAlbumCategoryMutationVariables = {
-  input: CreateAlbumCategoryInput,
-  condition?: ModelAlbumCategoryConditionInput | null,
+export type ModelAuthorConnection = {
+  __typename: "ModelAuthorConnection",
+  items:  Array<Author | null >,
+  nextToken?: string | null,
 };
 
-export type CreateAlbumCategoryMutation = {
-  createAlbumCategory?:  {
-    __typename: "AlbumCategory",
-    id: string,
-    title: string,
-    albums?:  {
-      __typename: "ModelAlbumConnection",
-      items:  Array< {
-        __typename: "Album",
-        id: string,
-        name: string,
-        by: string,
-        numberOfLikes: number,
-        imageUri: string,
-        artistsHeadline: string,
-        albumCategoryId: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
+export type ModelEssayFilterInput = {
+  id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  imageUri?: ModelStringInput | null,
+  audioUri?: ModelStringInput | null,
+  temp?: ModelStringInput | null,
+  essayCategoryId?: ModelIDInput | null,
+  authorId?: ModelIDInput | null,
+  and?: Array< ModelEssayFilterInput | null > | null,
+  or?: Array< ModelEssayFilterInput | null > | null,
+  not?: ModelEssayFilterInput | null,
 };
 
-export type UpdateAlbumCategoryMutationVariables = {
-  input: UpdateAlbumCategoryInput,
-  condition?: ModelAlbumCategoryConditionInput | null,
+export type CreateEssayCategoryMutationVariables = {
+  input: CreateEssayCategoryInput,
+  condition?: ModelEssayCategoryConditionInput | null,
 };
 
-export type UpdateAlbumCategoryMutation = {
-  updateAlbumCategory?:  {
-    __typename: "AlbumCategory",
-    id: string,
-    title: string,
-    albums?:  {
-      __typename: "ModelAlbumConnection",
-      items:  Array< {
-        __typename: "Album",
-        id: string,
-        name: string,
-        by: string,
-        numberOfLikes: number,
-        imageUri: string,
-        artistsHeadline: string,
-        albumCategoryId: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type DeleteAlbumCategoryMutationVariables = {
-  input: DeleteAlbumCategoryInput,
-  condition?: ModelAlbumCategoryConditionInput | null,
-};
-
-export type DeleteAlbumCategoryMutation = {
-  deleteAlbumCategory?:  {
-    __typename: "AlbumCategory",
-    id: string,
-    title: string,
-    albums?:  {
-      __typename: "ModelAlbumConnection",
-      items:  Array< {
-        __typename: "Album",
-        id: string,
-        name: string,
-        by: string,
-        numberOfLikes: number,
-        imageUri: string,
-        artistsHeadline: string,
-        albumCategoryId: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type CreateAlbumMutationVariables = {
-  input: CreateAlbumInput,
-  condition?: ModelAlbumConditionInput | null,
-};
-
-export type CreateAlbumMutation = {
-  createAlbum?:  {
-    __typename: "Album",
+export type CreateEssayCategoryMutation = {
+  createEssayCategory?:  {
+    __typename: "EssayCategory",
     id: string,
     name: string,
-    by: string,
-    numberOfLikes: number,
-    imageUri: string,
-    artistsHeadline: string,
-    songs?:  {
-      __typename: "ModelSongConnection",
+    temp: string,
+    essays?:  {
+      __typename: "ModelEssayConnection",
       items:  Array< {
-        __typename: "Song",
+        __typename: "Essay",
         id: string,
+        name: string,
         imageUri: string,
-        uri: string,
-        title: string,
-        artist: string,
-        albumId: string,
+        audioUri: string,
+        temp: string,
+        essayCategoryId: string,
+        authorId: string,
         createdAt: string,
         updatedAt: string,
       } | null >,
       nextToken?: string | null,
-    } | null,
-    albumCategoryId: string,
-    albumCategory?:  {
-      __typename: "AlbumCategory",
-      id: string,
-      title: string,
-      albums?:  {
-        __typename: "ModelAlbumConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
     } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type UpdateAlbumMutationVariables = {
-  input: UpdateAlbumInput,
-  condition?: ModelAlbumConditionInput | null,
+export type UpdateEssayCategoryMutationVariables = {
+  input: UpdateEssayCategoryInput,
+  condition?: ModelEssayCategoryConditionInput | null,
 };
 
-export type UpdateAlbumMutation = {
-  updateAlbum?:  {
-    __typename: "Album",
+export type UpdateEssayCategoryMutation = {
+  updateEssayCategory?:  {
+    __typename: "EssayCategory",
     id: string,
     name: string,
-    by: string,
-    numberOfLikes: number,
-    imageUri: string,
-    artistsHeadline: string,
-    songs?:  {
-      __typename: "ModelSongConnection",
+    temp: string,
+    essays?:  {
+      __typename: "ModelEssayConnection",
       items:  Array< {
-        __typename: "Song",
+        __typename: "Essay",
         id: string,
+        name: string,
         imageUri: string,
-        uri: string,
-        title: string,
-        artist: string,
-        albumId: string,
+        audioUri: string,
+        temp: string,
+        essayCategoryId: string,
+        authorId: string,
         createdAt: string,
         updatedAt: string,
       } | null >,
       nextToken?: string | null,
-    } | null,
-    albumCategoryId: string,
-    albumCategory?:  {
-      __typename: "AlbumCategory",
-      id: string,
-      title: string,
-      albums?:  {
-        __typename: "ModelAlbumConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
     } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type DeleteAlbumMutationVariables = {
-  input: DeleteAlbumInput,
-  condition?: ModelAlbumConditionInput | null,
+export type DeleteEssayCategoryMutationVariables = {
+  input: DeleteEssayCategoryInput,
+  condition?: ModelEssayCategoryConditionInput | null,
 };
 
-export type DeleteAlbumMutation = {
-  deleteAlbum?:  {
-    __typename: "Album",
+export type DeleteEssayCategoryMutation = {
+  deleteEssayCategory?:  {
+    __typename: "EssayCategory",
     id: string,
     name: string,
-    by: string,
-    numberOfLikes: number,
-    imageUri: string,
-    artistsHeadline: string,
-    songs?:  {
-      __typename: "ModelSongConnection",
+    temp: string,
+    essays?:  {
+      __typename: "ModelEssayConnection",
       items:  Array< {
-        __typename: "Song",
+        __typename: "Essay",
         id: string,
+        name: string,
         imageUri: string,
-        uri: string,
-        title: string,
-        artist: string,
-        albumId: string,
+        audioUri: string,
+        temp: string,
+        essayCategoryId: string,
+        authorId: string,
         createdAt: string,
         updatedAt: string,
       } | null >,
       nextToken?: string | null,
     } | null,
-    albumCategoryId: string,
-    albumCategory?:  {
-      __typename: "AlbumCategory",
-      id: string,
-      title: string,
-      albums?:  {
-        __typename: "ModelAlbumConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type CreateSongMutationVariables = {
-  input: CreateSongInput,
-  condition?: ModelSongConditionInput | null,
+export type CreateAuthorMutationVariables = {
+  input: CreateAuthorInput,
+  condition?: ModelAuthorConditionInput | null,
 };
 
-export type CreateSongMutation = {
-  createSong?:  {
-    __typename: "Song",
+export type CreateAuthorMutation = {
+  createAuthor?:  {
+    __typename: "Author",
     id: string,
+    name: string,
     imageUri: string,
-    uri: string,
-    title: string,
-    artist: string,
-    albumId: string,
-    album?:  {
-      __typename: "Album",
-      id: string,
-      name: string,
-      by: string,
-      numberOfLikes: number,
-      imageUri: string,
-      artistsHeadline: string,
-      songs?:  {
-        __typename: "ModelSongConnection",
-        nextToken?: string | null,
-      } | null,
-      albumCategoryId: string,
-      albumCategory?:  {
-        __typename: "AlbumCategory",
+    temp: string,
+    essays?:  {
+      __typename: "ModelEssayConnection",
+      items:  Array< {
+        __typename: "Essay",
         id: string,
-        title: string,
+        name: string,
+        imageUri: string,
+        audioUri: string,
+        temp: string,
+        essayCategoryId: string,
+        authorId: string,
         createdAt: string,
         updatedAt: string,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
+      } | null >,
+      nextToken?: string | null,
     } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type UpdateSongMutationVariables = {
-  input: UpdateSongInput,
-  condition?: ModelSongConditionInput | null,
+export type UpdateAuthorMutationVariables = {
+  input: UpdateAuthorInput,
+  condition?: ModelAuthorConditionInput | null,
 };
 
-export type UpdateSongMutation = {
-  updateSong?:  {
-    __typename: "Song",
+export type UpdateAuthorMutation = {
+  updateAuthor?:  {
+    __typename: "Author",
     id: string,
+    name: string,
     imageUri: string,
-    uri: string,
-    title: string,
-    artist: string,
-    albumId: string,
-    album?:  {
-      __typename: "Album",
-      id: string,
-      name: string,
-      by: string,
-      numberOfLikes: number,
-      imageUri: string,
-      artistsHeadline: string,
-      songs?:  {
-        __typename: "ModelSongConnection",
-        nextToken?: string | null,
-      } | null,
-      albumCategoryId: string,
-      albumCategory?:  {
-        __typename: "AlbumCategory",
+    temp: string,
+    essays?:  {
+      __typename: "ModelEssayConnection",
+      items:  Array< {
+        __typename: "Essay",
         id: string,
-        title: string,
+        name: string,
+        imageUri: string,
+        audioUri: string,
+        temp: string,
+        essayCategoryId: string,
+        authorId: string,
         createdAt: string,
         updatedAt: string,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
+      } | null >,
+      nextToken?: string | null,
     } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type DeleteSongMutationVariables = {
-  input: DeleteSongInput,
-  condition?: ModelSongConditionInput | null,
+export type DeleteAuthorMutationVariables = {
+  input: DeleteAuthorInput,
+  condition?: ModelAuthorConditionInput | null,
 };
 
-export type DeleteSongMutation = {
-  deleteSong?:  {
-    __typename: "Song",
+export type DeleteAuthorMutation = {
+  deleteAuthor?:  {
+    __typename: "Author",
     id: string,
+    name: string,
     imageUri: string,
-    uri: string,
-    title: string,
-    artist: string,
-    albumId: string,
-    album?:  {
-      __typename: "Album",
-      id: string,
-      name: string,
-      by: string,
-      numberOfLikes: number,
-      imageUri: string,
-      artistsHeadline: string,
-      songs?:  {
-        __typename: "ModelSongConnection",
-        nextToken?: string | null,
-      } | null,
-      albumCategoryId: string,
-      albumCategory?:  {
-        __typename: "AlbumCategory",
+    temp: string,
+    essays?:  {
+      __typename: "ModelEssayConnection",
+      items:  Array< {
+        __typename: "Essay",
         id: string,
-        title: string,
+        name: string,
+        imageUri: string,
+        audioUri: string,
+        temp: string,
+        essayCategoryId: string,
+        authorId: string,
         createdAt: string,
         updatedAt: string,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type CreateEssayMutationVariables = {
+  input: CreateEssayInput,
+  condition?: ModelEssayConditionInput | null,
+};
+
+export type CreateEssayMutation = {
+  createEssay?:  {
+    __typename: "Essay",
+    id: string,
+    name: string,
+    imageUri: string,
+    audioUri: string,
+    temp: string,
+    essayCategoryId: string,
+    essayCategory?:  {
+      __typename: "EssayCategory",
+      id: string,
+      name: string,
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    authorId: string,
+    author?:  {
+      __typename: "Author",
+      id: string,
+      name: string,
+      imageUri: string,
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
+        nextToken?: string | null,
       } | null,
       createdAt: string,
       updatedAt: string,
@@ -605,26 +471,117 @@ export type DeleteSongMutation = {
   } | null,
 };
 
-export type GetAlbumCategoryQueryVariables = {
+export type UpdateEssayMutationVariables = {
+  input: UpdateEssayInput,
+  condition?: ModelEssayConditionInput | null,
+};
+
+export type UpdateEssayMutation = {
+  updateEssay?:  {
+    __typename: "Essay",
+    id: string,
+    name: string,
+    imageUri: string,
+    audioUri: string,
+    temp: string,
+    essayCategoryId: string,
+    essayCategory?:  {
+      __typename: "EssayCategory",
+      id: string,
+      name: string,
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    authorId: string,
+    author?:  {
+      __typename: "Author",
+      id: string,
+      name: string,
+      imageUri: string,
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteEssayMutationVariables = {
+  input: DeleteEssayInput,
+  condition?: ModelEssayConditionInput | null,
+};
+
+export type DeleteEssayMutation = {
+  deleteEssay?:  {
+    __typename: "Essay",
+    id: string,
+    name: string,
+    imageUri: string,
+    audioUri: string,
+    temp: string,
+    essayCategoryId: string,
+    essayCategory?:  {
+      __typename: "EssayCategory",
+      id: string,
+      name: string,
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    authorId: string,
+    author?:  {
+      __typename: "Author",
+      id: string,
+      name: string,
+      imageUri: string,
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type GetEssayCategoryQueryVariables = {
   id: string,
 };
 
-export type GetAlbumCategoryQuery = {
-  getAlbumCategory?:  {
-    __typename: "AlbumCategory",
+export type GetEssayCategoryQuery = {
+  getEssayCategory?:  {
+    __typename: "EssayCategory",
     id: string,
-    title: string,
-    albums?:  {
-      __typename: "ModelAlbumConnection",
+    name: string,
+    temp: string,
+    essays?:  {
+      __typename: "ModelEssayConnection",
       items:  Array< {
-        __typename: "Album",
+        __typename: "Essay",
         id: string,
         name: string,
-        by: string,
-        numberOfLikes: number,
         imageUri: string,
-        artistsHeadline: string,
-        albumCategoryId: string,
+        audioUri: string,
+        temp: string,
+        essayCategoryId: string,
+        authorId: string,
         createdAt: string,
         updatedAt: string,
       } | null >,
@@ -635,21 +592,22 @@ export type GetAlbumCategoryQuery = {
   } | null,
 };
 
-export type ListAlbumCategorysQueryVariables = {
-  filter?: ModelAlbumCategoryFilterInput | null,
+export type ListEssayCategorysQueryVariables = {
+  filter?: ModelEssayCategoryFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListAlbumCategorysQuery = {
-  listAlbumCategorys?:  {
-    __typename: "ModelAlbumCategoryConnection",
+export type ListEssayCategorysQuery = {
+  listEssayCategorys?:  {
+    __typename: "ModelEssayCategoryConnection",
     items:  Array< {
-      __typename: "AlbumCategory",
+      __typename: "EssayCategory",
       id: string,
-      title: string,
-      albums?:  {
-        __typename: "ModelAlbumConnection",
+      name: string,
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
         nextToken?: string | null,
       } | null,
       createdAt: string,
@@ -659,79 +617,56 @@ export type ListAlbumCategorysQuery = {
   } | null,
 };
 
-export type GetAlbumQueryVariables = {
+export type GetAuthorQueryVariables = {
   id: string,
 };
 
-export type GetAlbumQuery = {
-  getAlbum?:  {
-    __typename: "Album",
+export type GetAuthorQuery = {
+  getAuthor?:  {
+    __typename: "Author",
     id: string,
     name: string,
-    by: string,
-    numberOfLikes: number,
     imageUri: string,
-    artistsHeadline: string,
-    songs?:  {
-      __typename: "ModelSongConnection",
+    temp: string,
+    essays?:  {
+      __typename: "ModelEssayConnection",
       items:  Array< {
-        __typename: "Song",
+        __typename: "Essay",
         id: string,
+        name: string,
         imageUri: string,
-        uri: string,
-        title: string,
-        artist: string,
-        albumId: string,
+        audioUri: string,
+        temp: string,
+        essayCategoryId: string,
+        authorId: string,
         createdAt: string,
         updatedAt: string,
       } | null >,
       nextToken?: string | null,
-    } | null,
-    albumCategoryId: string,
-    albumCategory?:  {
-      __typename: "AlbumCategory",
-      id: string,
-      title: string,
-      albums?:  {
-        __typename: "ModelAlbumConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
     } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type ListAlbumsQueryVariables = {
-  filter?: ModelAlbumFilterInput | null,
+export type ListAuthorsQueryVariables = {
+  filter?: ModelAuthorFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListAlbumsQuery = {
-  listAlbums?:  {
-    __typename: "ModelAlbumConnection",
+export type ListAuthorsQuery = {
+  listAuthors?:  {
+    __typename: "ModelAuthorConnection",
     items:  Array< {
-      __typename: "Album",
+      __typename: "Author",
       id: string,
       name: string,
-      by: string,
-      numberOfLikes: number,
       imageUri: string,
-      artistsHeadline: string,
-      songs?:  {
-        __typename: "ModelSongConnection",
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
         nextToken?: string | null,
-      } | null,
-      albumCategoryId: string,
-      albumCategory?:  {
-        __typename: "AlbumCategory",
-        id: string,
-        title: string,
-        createdAt: string,
-        updatedAt: string,
       } | null,
       createdAt: string,
       updatedAt: string,
@@ -740,38 +675,41 @@ export type ListAlbumsQuery = {
   } | null,
 };
 
-export type GetSongQueryVariables = {
+export type GetEssayQueryVariables = {
   id: string,
 };
 
-export type GetSongQuery = {
-  getSong?:  {
-    __typename: "Song",
+export type GetEssayQuery = {
+  getEssay?:  {
+    __typename: "Essay",
     id: string,
+    name: string,
     imageUri: string,
-    uri: string,
-    title: string,
-    artist: string,
-    albumId: string,
-    album?:  {
-      __typename: "Album",
+    audioUri: string,
+    temp: string,
+    essayCategoryId: string,
+    essayCategory?:  {
+      __typename: "EssayCategory",
       id: string,
       name: string,
-      by: string,
-      numberOfLikes: number,
-      imageUri: string,
-      artistsHeadline: string,
-      songs?:  {
-        __typename: "ModelSongConnection",
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
         nextToken?: string | null,
       } | null,
-      albumCategoryId: string,
-      albumCategory?:  {
-        __typename: "AlbumCategory",
-        id: string,
-        title: string,
-        createdAt: string,
-        updatedAt: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    authorId: string,
+    author?:  {
+      __typename: "Author",
+      id: string,
+      name: string,
+      imageUri: string,
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
+        nextToken?: string | null,
       } | null,
       createdAt: string,
       updatedAt: string,
@@ -781,32 +719,38 @@ export type GetSongQuery = {
   } | null,
 };
 
-export type ListSongsQueryVariables = {
-  filter?: ModelSongFilterInput | null,
+export type ListEssaysQueryVariables = {
+  filter?: ModelEssayFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListSongsQuery = {
-  listSongs?:  {
-    __typename: "ModelSongConnection",
+export type ListEssaysQuery = {
+  listEssays?:  {
+    __typename: "ModelEssayConnection",
     items:  Array< {
-      __typename: "Song",
+      __typename: "Essay",
       id: string,
+      name: string,
       imageUri: string,
-      uri: string,
-      title: string,
-      artist: string,
-      albumId: string,
-      album?:  {
-        __typename: "Album",
+      audioUri: string,
+      temp: string,
+      essayCategoryId: string,
+      essayCategory?:  {
+        __typename: "EssayCategory",
         id: string,
         name: string,
-        by: string,
-        numberOfLikes: number,
+        temp: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null,
+      authorId: string,
+      author?:  {
+        __typename: "Author",
+        id: string,
+        name: string,
         imageUri: string,
-        artistsHeadline: string,
-        albumCategoryId: string,
+        temp: string,
         createdAt: string,
         updatedAt: string,
       } | null,
@@ -817,197 +761,201 @@ export type ListSongsQuery = {
   } | null,
 };
 
-export type OnCreateAlbumCategorySubscription = {
-  onCreateAlbumCategory?:  {
-    __typename: "AlbumCategory",
-    id: string,
-    title: string,
-    albums?:  {
-      __typename: "ModelAlbumConnection",
-      items:  Array< {
-        __typename: "Album",
-        id: string,
-        name: string,
-        by: string,
-        numberOfLikes: number,
-        imageUri: string,
-        artistsHeadline: string,
-        albumCategoryId: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnUpdateAlbumCategorySubscription = {
-  onUpdateAlbumCategory?:  {
-    __typename: "AlbumCategory",
-    id: string,
-    title: string,
-    albums?:  {
-      __typename: "ModelAlbumConnection",
-      items:  Array< {
-        __typename: "Album",
-        id: string,
-        name: string,
-        by: string,
-        numberOfLikes: number,
-        imageUri: string,
-        artistsHeadline: string,
-        albumCategoryId: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnDeleteAlbumCategorySubscription = {
-  onDeleteAlbumCategory?:  {
-    __typename: "AlbumCategory",
-    id: string,
-    title: string,
-    albums?:  {
-      __typename: "ModelAlbumConnection",
-      items:  Array< {
-        __typename: "Album",
-        id: string,
-        name: string,
-        by: string,
-        numberOfLikes: number,
-        imageUri: string,
-        artistsHeadline: string,
-        albumCategoryId: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnCreateAlbumSubscription = {
-  onCreateAlbum?:  {
-    __typename: "Album",
+export type OnCreateEssayCategorySubscription = {
+  onCreateEssayCategory?:  {
+    __typename: "EssayCategory",
     id: string,
     name: string,
-    by: string,
-    numberOfLikes: number,
-    imageUri: string,
-    artistsHeadline: string,
-    songs?:  {
-      __typename: "ModelSongConnection",
+    temp: string,
+    essays?:  {
+      __typename: "ModelEssayConnection",
       items:  Array< {
-        __typename: "Song",
+        __typename: "Essay",
         id: string,
+        name: string,
         imageUri: string,
-        uri: string,
-        title: string,
-        artist: string,
-        albumId: string,
+        audioUri: string,
+        temp: string,
+        essayCategoryId: string,
+        authorId: string,
         createdAt: string,
         updatedAt: string,
       } | null >,
       nextToken?: string | null,
-    } | null,
-    albumCategoryId: string,
-    albumCategory?:  {
-      __typename: "AlbumCategory",
-      id: string,
-      title: string,
-      albums?:  {
-        __typename: "ModelAlbumConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
     } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type OnUpdateAlbumSubscription = {
-  onUpdateAlbum?:  {
-    __typename: "Album",
+export type OnUpdateEssayCategorySubscription = {
+  onUpdateEssayCategory?:  {
+    __typename: "EssayCategory",
     id: string,
     name: string,
-    by: string,
-    numberOfLikes: number,
-    imageUri: string,
-    artistsHeadline: string,
-    songs?:  {
-      __typename: "ModelSongConnection",
+    temp: string,
+    essays?:  {
+      __typename: "ModelEssayConnection",
       items:  Array< {
-        __typename: "Song",
+        __typename: "Essay",
         id: string,
+        name: string,
         imageUri: string,
-        uri: string,
-        title: string,
-        artist: string,
-        albumId: string,
+        audioUri: string,
+        temp: string,
+        essayCategoryId: string,
+        authorId: string,
         createdAt: string,
         updatedAt: string,
       } | null >,
       nextToken?: string | null,
-    } | null,
-    albumCategoryId: string,
-    albumCategory?:  {
-      __typename: "AlbumCategory",
-      id: string,
-      title: string,
-      albums?:  {
-        __typename: "ModelAlbumConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
     } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type OnDeleteAlbumSubscription = {
-  onDeleteAlbum?:  {
-    __typename: "Album",
+export type OnDeleteEssayCategorySubscription = {
+  onDeleteEssayCategory?:  {
+    __typename: "EssayCategory",
     id: string,
     name: string,
-    by: string,
-    numberOfLikes: number,
-    imageUri: string,
-    artistsHeadline: string,
-    songs?:  {
-      __typename: "ModelSongConnection",
+    temp: string,
+    essays?:  {
+      __typename: "ModelEssayConnection",
       items:  Array< {
-        __typename: "Song",
+        __typename: "Essay",
         id: string,
+        name: string,
         imageUri: string,
-        uri: string,
-        title: string,
-        artist: string,
-        albumId: string,
+        audioUri: string,
+        temp: string,
+        essayCategoryId: string,
+        authorId: string,
         createdAt: string,
         updatedAt: string,
       } | null >,
       nextToken?: string | null,
     } | null,
-    albumCategoryId: string,
-    albumCategory?:  {
-      __typename: "AlbumCategory",
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateAuthorSubscription = {
+  onCreateAuthor?:  {
+    __typename: "Author",
+    id: string,
+    name: string,
+    imageUri: string,
+    temp: string,
+    essays?:  {
+      __typename: "ModelEssayConnection",
+      items:  Array< {
+        __typename: "Essay",
+        id: string,
+        name: string,
+        imageUri: string,
+        audioUri: string,
+        temp: string,
+        essayCategoryId: string,
+        authorId: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateAuthorSubscription = {
+  onUpdateAuthor?:  {
+    __typename: "Author",
+    id: string,
+    name: string,
+    imageUri: string,
+    temp: string,
+    essays?:  {
+      __typename: "ModelEssayConnection",
+      items:  Array< {
+        __typename: "Essay",
+        id: string,
+        name: string,
+        imageUri: string,
+        audioUri: string,
+        temp: string,
+        essayCategoryId: string,
+        authorId: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteAuthorSubscription = {
+  onDeleteAuthor?:  {
+    __typename: "Author",
+    id: string,
+    name: string,
+    imageUri: string,
+    temp: string,
+    essays?:  {
+      __typename: "ModelEssayConnection",
+      items:  Array< {
+        __typename: "Essay",
+        id: string,
+        name: string,
+        imageUri: string,
+        audioUri: string,
+        temp: string,
+        essayCategoryId: string,
+        authorId: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateEssaySubscription = {
+  onCreateEssay?:  {
+    __typename: "Essay",
+    id: string,
+    name: string,
+    imageUri: string,
+    audioUri: string,
+    temp: string,
+    essayCategoryId: string,
+    essayCategory?:  {
+      __typename: "EssayCategory",
       id: string,
-      title: string,
-      albums?:  {
-        __typename: "ModelAlbumConnection",
+      name: string,
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    authorId: string,
+    author?:  {
+      __typename: "Author",
+      id: string,
+      name: string,
+      imageUri: string,
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
         nextToken?: string | null,
       } | null,
       createdAt: string,
@@ -1018,34 +966,37 @@ export type OnDeleteAlbumSubscription = {
   } | null,
 };
 
-export type OnCreateSongSubscription = {
-  onCreateSong?:  {
-    __typename: "Song",
+export type OnUpdateEssaySubscription = {
+  onUpdateEssay?:  {
+    __typename: "Essay",
     id: string,
+    name: string,
     imageUri: string,
-    uri: string,
-    title: string,
-    artist: string,
-    albumId: string,
-    album?:  {
-      __typename: "Album",
+    audioUri: string,
+    temp: string,
+    essayCategoryId: string,
+    essayCategory?:  {
+      __typename: "EssayCategory",
       id: string,
       name: string,
-      by: string,
-      numberOfLikes: number,
-      imageUri: string,
-      artistsHeadline: string,
-      songs?:  {
-        __typename: "ModelSongConnection",
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
         nextToken?: string | null,
       } | null,
-      albumCategoryId: string,
-      albumCategory?:  {
-        __typename: "AlbumCategory",
-        id: string,
-        title: string,
-        createdAt: string,
-        updatedAt: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    authorId: string,
+    author?:  {
+      __typename: "Author",
+      id: string,
+      name: string,
+      imageUri: string,
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
+        nextToken?: string | null,
       } | null,
       createdAt: string,
       updatedAt: string,
@@ -1055,71 +1006,37 @@ export type OnCreateSongSubscription = {
   } | null,
 };
 
-export type OnUpdateSongSubscription = {
-  onUpdateSong?:  {
-    __typename: "Song",
+export type OnDeleteEssaySubscription = {
+  onDeleteEssay?:  {
+    __typename: "Essay",
     id: string,
+    name: string,
     imageUri: string,
-    uri: string,
-    title: string,
-    artist: string,
-    albumId: string,
-    album?:  {
-      __typename: "Album",
+    audioUri: string,
+    temp: string,
+    essayCategoryId: string,
+    essayCategory?:  {
+      __typename: "EssayCategory",
       id: string,
       name: string,
-      by: string,
-      numberOfLikes: number,
-      imageUri: string,
-      artistsHeadline: string,
-      songs?:  {
-        __typename: "ModelSongConnection",
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
         nextToken?: string | null,
-      } | null,
-      albumCategoryId: string,
-      albumCategory?:  {
-        __typename: "AlbumCategory",
-        id: string,
-        title: string,
-        createdAt: string,
-        updatedAt: string,
       } | null,
       createdAt: string,
       updatedAt: string,
     } | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnDeleteSongSubscription = {
-  onDeleteSong?:  {
-    __typename: "Song",
-    id: string,
-    imageUri: string,
-    uri: string,
-    title: string,
-    artist: string,
-    albumId: string,
-    album?:  {
-      __typename: "Album",
+    authorId: string,
+    author?:  {
+      __typename: "Author",
       id: string,
       name: string,
-      by: string,
-      numberOfLikes: number,
       imageUri: string,
-      artistsHeadline: string,
-      songs?:  {
-        __typename: "ModelSongConnection",
+      temp: string,
+      essays?:  {
+        __typename: "ModelEssayConnection",
         nextToken?: string | null,
-      } | null,
-      albumCategoryId: string,
-      albumCategory?:  {
-        __typename: "AlbumCategory",
-        id: string,
-        title: string,
-        createdAt: string,
-        updatedAt: string,
       } | null,
       createdAt: string,
       updatedAt: string,
